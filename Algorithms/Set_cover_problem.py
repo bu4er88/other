@@ -13,6 +13,7 @@ def best_stations_search(states_needed, stations):
     print(final_stations)
 
 
+# chekout
 states_needed = ['A', 'B', 'C', 'D', 'E', 'F']
 stations = {
     '1': ['A', 'B', 'C'],
@@ -21,8 +22,3 @@ stations = {
     '4': ['B', 'D', 'E', 'F']
 }
 best_stations_search(states_needed, stations)
-"""
-a = set([1,2,3,4,5])
-b = set([3,4,5,6,7])
-c = a & b
-print(c)"""
