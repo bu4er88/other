@@ -1,4 +1,8 @@
 class Perimeter:
+    """
+    This class calculate perimeter for
+    rectangle with sides: side1 and side2
+    """
     def __init__(self, side1, side2):
         self.__side1 = side1
         self.__side2 = side2
