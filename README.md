@@ -1,4 +1,2 @@
 # test_repo
-My temp repo for playing with Git
-
-I will train my skill with this temp repo!
+My temp repo for making some study notes and playing with Git
