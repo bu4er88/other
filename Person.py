@@ -12,22 +12,19 @@ class Person:
     def __init__(self, name, surname, gender):
         self.name = name
         self.surname = surname
-        self.gender = gender
+        self.__gender = gender
+        if (self.gender != 'male') and (self.gender != 'female'):
+            print('Не знаю, что вы имели ввиду? Пусть это будет мальчик!')
+            self.gender = 'male'
 
-    @property
-    def gender(self):
-        return self.__gender
-
-    @gender.setter
-    def gender(self, value):
-        if value not in ['male', 'female']:
-            print("Не знаю, что вы имели ввиду? Пусть это будет мальчик!")
-            self.__gender = 'male'
+    def __str__(self):
+        if self.gender == 'male':
+            return f'Гражданин {self.surname} {self.name}'
         else:
-            self.__gender = value
+            return f'Гражданка {self.surname} {self.name}'
 
 
-a = Person('Leam', 'Kavaliou', '12345dfdfsdaf')  # "Не знаю, что вы имели ввиду? Пусть это будет мальчик!"
-print(a.gender)  # male
-a.gender = 'female'
-print(a.gender)  # female
+p1 = Person('Chuck', 'Norris')
+print(p1) # печатает "Гражданин Norris Chuck"
+p2 = Person('Mila', 'Kunis', 'female')
+print(p2) # печатает "Гражданка Kunis Mila"
