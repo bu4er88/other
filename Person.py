@@ -9,13 +9,22 @@
 если объект - женщина (атрибут gender = "female"), возвращать строку "Гражданка <Фамилия> <Имя>
 """
 class Person:
-    def __init__(self, name, surname, gender):
+    def __init__(self, name, surname, gender='male'):
         self.name = name
         self.surname = surname
-        self.__gender = gender
-        if (self.gender != 'male') and (self.gender != 'female'):
+        self.gender = gender
+
+    @property
+    def gender(self):
+        return self.__gender
+
+    @gender.setter
+    def gender(self, value):
+        if value != 'female' and value != 'male':
             print('Не знаю, что вы имели ввиду? Пусть это будет мальчик!')
-            self.gender = 'male'
+            self.__gender = 'male'
+        else:
+            self.__gender = value
 
     def __str__(self):
         if self.gender == 'male':
@@ -24,7 +33,7 @@ class Person:
             return f'Гражданка {self.surname} {self.name}'
 
 
-p1 = Person('Chuck', 'Norris')
+p1 = Person('Chuck', 'Norris', "123") # "печатает Не знаю, что вы имели ввиду? Пусть это будет мальчик!"
 print(p1) # печатает "Гражданин Norris Chuck"
 p2 = Person('Mila', 'Kunis', 'female')
 print(p2) # печатает "Гражданка Kunis Mila"
