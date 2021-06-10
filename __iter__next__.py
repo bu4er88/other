@@ -12,3 +12,19 @@ class Names:
             raise StopIteration
         letter = self.name[self.index]
         return letter
+
+a = Names('Jacobs Creek')
+b = iter(a)
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
+print(next(b))
