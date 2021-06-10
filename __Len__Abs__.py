@@ -11,12 +11,10 @@ class Person:
 
     @property
     def current_balance(self):
-        # getter for __current_balance
         return f'Current balance: {self.__current_balance} $'
 
     @property
     def purchases(self):
-        # getter for __purchase_sum
         return f'Sum of purchases: {self.__purchases}'
 
     @property
