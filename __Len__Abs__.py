@@ -30,7 +30,7 @@ class Person:
             raise TypeError
         return f"You've just made a purchase for the amount {value} $\nThe remaining amount on the balance is {self.__current_balance} $"
 
-    # To get lenth of full name by calling len(attribute) we should create method __len__
+    # To get length of full name by calling len(attribute) we should create method __len__
     def __len__(self):
         return len(self.__name + self.__surname)
 
