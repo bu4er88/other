@@ -15,16 +15,7 @@ class Names:
 
 a = Names('Jacobs Creek')
 b = iter(a)
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
-print(next(b))
+
+for i in range(0,15):
+    print(next(b))
+
