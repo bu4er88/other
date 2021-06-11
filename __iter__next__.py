@@ -18,4 +18,3 @@ b = iter(a)
 
 for i in range(0,15):
     print(next(b))
-
