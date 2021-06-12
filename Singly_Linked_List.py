@@ -17,7 +17,6 @@ class MyLinkedList():
         out = ''
         if self.head is None:
             return f'[]'
-        #itr = self.head
         lst = ''
         node = self.head
         while node:
@@ -73,7 +72,7 @@ class MyLinkedList():
         If index is greater than the length, the node will not be inserted.
         """
         if index < 0 or index > len(self):
-            raise Exception('Index is not valid!')
+            raise IndexError('Index is not valid!')
         if index == 0 or self.head is None:
             self.addAtHead(val)  # next=None
         if index == len(self):
@@ -93,12 +92,15 @@ class MyLinkedList():
         Delete the index-th node in the linked list, if the index is valid.
         """
         if index < 0 or index > len(self):
-            raise Exception('Index is not valid!')
+            raise IndexError('Index is not valid!')
+        if index == 0:
+            self.head = self.head.next
         count = 0
         node = self.head
         while node:
             if count == index - 1:
-                node = node.next.next
+                node.next = node.next.next
+                break
             count += 1
             node = node.next
 
@@ -112,12 +114,18 @@ class MyLinkedList():
 
 myLinkedList = MyLinkedList()
 myLinkedList.addAtHead(3)
+print('llist:', myLinkedList)
 myLinkedList.addAtHead(2)
+print('llist:', myLinkedList)
 myLinkedList.addAtHead(1)
+print('llist:', myLinkedList)
 myLinkedList.addAtTail(0)
+print('llist:', myLinkedList)
 myLinkedList.addAtIndex(2, "I'm here")  # linked list becomes 1->2->3
+print('llist:', myLinkedList)
 print(myLinkedList.get(0))              # return 2
-# myLinkedList.deleteAtIndex(1);        # now the linked list is 1->3
-# myLinkedList.get(1);                  # return 3
+myLinkedList.deleteAtIndex(1)        # now the linked list is 1->3
+print('llist:', myLinkedList)
+print(myLinkedList.get(1))                  # return 3
 print('llist:', myLinkedList)
 print('Length:', len(myLinkedList))
