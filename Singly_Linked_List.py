@@ -92,7 +92,15 @@ class MyLinkedList():
         """
         Delete the index-th node in the linked list, if the index is valid.
         """
-        pass
+        if index < 0 or index > len(self):
+            raise Exception('Index is not valid!')
+        count = 0
+        node = self.head
+        while node:
+            if count == index - 1:
+                node = node.next.next
+            count += 1
+            node = node.next
 
 # Your MyLinkedList object will be instantiated and called as such:
 # obj = MyLinkedList()
