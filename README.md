@@ -1,3 +1,5 @@
-In this repo I saved some tasks from this course: https://stepik.org/course/72969/
+This repo contains some code that may be useful for me.
 
-Code may contains some desctiption in Russian
+
+Also, in this repo I saved some tasks from one cool Python-OOP course: https://stepik.org/course/72969/. 
+Code may contains some desctiption in Russian.
