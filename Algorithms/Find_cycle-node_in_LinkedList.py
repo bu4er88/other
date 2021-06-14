@@ -4,6 +4,7 @@
 #         self.val = x
 #         self.next = None
 
+
 class Solution:
     def detectCycle(self, head):
         # Solution 1 --> O(n)
