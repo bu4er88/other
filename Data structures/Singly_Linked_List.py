@@ -37,7 +37,7 @@ class MyLinkedList():
         Get the value of the index-th node in the linked list.
         If the index is invalid, return -1
         """
-        if self.head is None or index >= len(self):
+        if not self.head or index >= len(self) or index < 0:
              return -1
         count = 0
         node = self.head
@@ -71,12 +71,18 @@ class MyLinkedList():
         If index equals to the length of linked list, the node will be appended to the end of linked list.
         If index is greater than the length, the node will not be inserted.
         """
-        if index < 0 or index > len(self):
-            raise IndexError('Index is not valid!')
-        if index == 0 or self.head is None:
-            self.addAtHead(val)     # next=None
+        if index == 0:
+            self.addAtHead(val)
+            return
+        if index < 0:
+            return
         if index == len(self):
-            self.addAtTail(val)     # next=None
+            self.addAtTail(val)
+            return
+        if index >= len(self):
+            # raise IndexError('Index is not valid!')
+            return
+
         count = 0
         node = self.head
         while node:
@@ -91,8 +97,9 @@ class MyLinkedList():
         """
         Delete the index-th node in the linked list, if the index is valid.
         """
-        if index < 0 or index > len(self):
-            raise IndexError('Index is not valid!')
+        if index < 0 or index >= len(self):
+            # raise IndexError('Index is not valid!')
+            return
         if index == 0:
             self.head = self.head.next
         count = 0
@@ -104,34 +111,11 @@ class MyLinkedList():
             count += 1
             node = node.next
 
-# Your MyLinkedList object will be instantiated and called as such:
+
+#our MyLinkedList object will be instantiated and called as such:
 # obj = MyLinkedList()
 # param_1 = obj.get(index)
 # obj.addAtHead(val)
 # obj.addAtTail(val)
 # obj.addAtIndex(index,val)
 # obj.deleteAtIndex(index)
-
-myLinkedList = MyLinkedList()
-#print(myLinkedList, len(myLinkedList))
-myLinkedList.addAtHead('head')
-# # print(myLinkedList, len(myLinkedList))
-myLinkedList.addAtHead('second_head')
-# # print(myLinkedList, len(myLinkedList))
-myLinkedList.addAtHead('third head')
-# # print(myLinkedList, len(myLinkedList))
-myLinkedList.addAtTail('tail')
-print(myLinkedList, len(myLinkedList))
-# print('llist:', myLinkedList)
-myLinkedList.addAtIndex(2, "New 2nd node")  # linked list becomes 1->2->3
-print(myLinkedList, len(myLinkedList))
-# print(myLinkedList.get(0))              # return 2
-myLinkedList.deleteAtIndex(0)        # now the linked list is 1->3
-print(myLinkedList, len(myLinkedList))
-# print(myLinkedList.get(1))                  # return 3
-# print('llist:', myLinkedList)
-# print('Length:', len(myLinkedList))
-print(myLinkedList.get(1))
-myLinkedList.addAtTail('second_tail')
-print(myLinkedList, myLinkedList.get(4))
-
